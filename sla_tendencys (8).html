@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLA's Tendencys 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --teal:#00C8C8;--teal2:#00A0A0;--teal-soft:rgba(0,200,200,0.12);
+  --navy:#0A1628;--navy2:#0F1F38;--navy3:#152844;
+  --card:#1A2E45;--card2:#1F3550;--card3:#243D5C;
+  --green:#2EE88A;--red:#FF5A5A;--yellow:#FFB84D;--purple:#A855F7;--orange:#FF6B35;
+  --text:#E8F4FF;--text2:#9BB8D4;--muted:#5A7A96;
+  --border:rgba(0,200,200,0.15);--border2:rgba(0,200,200,0.3);
+  --radius:12px;--shadow:0 2px 12px rgba(0,0,0,0.35);--shadow-md:0 4px 24px rgba(0,0,0,0.45);
+}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--text);min-height:100vh;}
+.nav{position:sticky;top:0;z-index:200;background:var(--navy2);border-bottom:2px solid var(--teal2);box-shadow:0 4px 20px rgba(0,0,0,0.5);}
+.nav-top{height:52px;display:flex;align-items:center;padding:0 20px;gap:16px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-div{width:1px;height:20px;background:rgba(255,255,255,0.15);}
+.logo-label{color:var(--text2);font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;}
+.nav-bottom{background:rgba(0,0,0,0.3);padding:6px 14px;display:flex;gap:5px;flex-wrap:wrap;}
+.nav-tab{color:#fff;font-size:.69rem;font-weight:600;padding:5px 11px;border-radius:20px;cursor:pointer;white-space:nowrap;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.07);transition:.18s;}
+.nav-tab:hover{background:rgba(0,200,200,0.25);border-color:var(--teal);}
+.nav-tab.active{background:var(--teal);color:var(--navy);font-weight:800;border-color:var(--teal);}
+.page{display:none;animation:fu .3s ease;}
+.page.active{display:block;}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.cover{min-height:100vh;background:linear-gradient(155deg,#060E1A 0%,var(--navy) 45%,var(--navy2) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;}
+.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,200,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,200,0.05) 1px,transparent 1px);background-size:48px 48px;}
+.cover-glow{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(0,200,200,0.12) 0%,transparent 65%);pointer-events:none;}
+.cover-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,200,0.12);border:1px solid rgba(0,200,200,0.35);color:var(--teal);font-size:.7rem;font-weight:700;padding:6px 20px;border-radius:30px;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
+.cover-logo{position:relative;z-index:1;margin-bottom:20px;display:flex;align-items:center;gap:14px;justify-content:center;}
+.cover h1{position:relative;z-index:1;font-size:clamp(2.4rem,6.5vw,4.2rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;letter-spacing:-1px;}
+.cover h1 em{color:var(--teal);font-style:normal;}
+.cover-sub{position:relative;z-index:1;font-size:.95rem;color:var(--text2);margin-bottom:48px;max-width:500px;line-height:1.75;}
+.cover-stats{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:48px;}
+.cstat{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-align:center;transition:.22s;}
+.cstat:hover{border-color:var(--teal);background:var(--teal-soft);}
+.cstat .n{font-size:2rem;font-weight:900;color:var(--teal);line-height:1;}
+.cstat .l{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:5px;}
+.cover-depts{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:7px;justify-content:center;max-width:720px;}
+.cdept{background:rgba(255,255,255,0.06);color:var(--text2);border:1px solid rgba(255,255,255,0.08);border-radius:7px;padding:5px 13px;font-size:.73rem;font-weight:500;transition:.18s;cursor:default;}
+.cdept:hover{background:var(--teal-soft);border-color:var(--border2);color:var(--teal);}
+.sp{max-width:960px;margin:0 auto;padding:36px 20px 80px;}
+.sh{background:var(--navy2);border-radius:16px;padding:26px 30px;margin-bottom:22px;display:flex;align-items:center;gap:16px;border:1px solid var(--border);border-left:5px solid var(--teal);box-shadow:var(--shadow-md);}
+.sh-icon{font-size:2rem;background:var(--teal-soft);border-radius:10px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border2);}
+.sh h2{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:3px;}
+.sh p{color:var(--text2);font-size:.83rem;}
+.kpi-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+.kpi{flex:1;min-width:110px;background:var(--card);border-radius:var(--radius);padding:16px 12px;text-align:center;border:1px solid var(--border);border-bottom:3px solid var(--teal);box-shadow:var(--shadow);transition:.2s;}
+.kpi:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.kpi .kv{font-size:1.5rem;font-weight:900;color:var(--teal);}
+.kpi .kl{font-size:.64rem;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:22px;}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid var(--border);border-top:3px solid var(--teal);transition:.2s;}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--border2);}
+.card h3{font-size:.74rem;font-weight:700;color:var(--teal);margin-bottom:12px;text-transform:uppercase;letter-spacing:.9px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border);padding-bottom:9px;}
+.metric{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);gap:8px;}
+.metric:last-child{border-bottom:none;}
+.metric .lbl{color:var(--text2);font-size:.78rem;line-height:1.4;flex:1;min-width:0;padding-top:3px;}
+.metric .val{font-weight:700;padding:4px 10px;border-radius:6px;font-size:.70rem;line-height:1.45;white-space:normal;overflow-wrap:anywhere;word-break:break-word;width:155px;min-width:155px;max-width:155px;text-align:center;background:var(--card2);color:var(--text);box-sizing:border-box;flex-shrink:0;}
+.val.g{background:rgba(46,232,138,0.15);color:#6EFBB8;}
+.val.o{background:rgba(255,184,77,0.15);color:#FFD080;}
+.val.r{background:rgba(255,90,90,0.15);color:#FF9090;}
+.val.b{background:rgba(0,200,200,0.15);color:#80E8E8;}
+.val.c{background:rgba(0,200,200,0.12);color:var(--teal);}
+.tl-wrap{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border);border-left:4px solid var(--teal);}
+.tl-wrap h3{font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:16px;}
+.tl-bar{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.tl-lbl{font-size:.71rem;color:var(--text2);width:170px;text-align:right;flex-shrink:0;}
+.tl-track{flex:1;background:var(--navy3);border-radius:99px;height:8px;overflow:hidden;position:relative;}
+.tl-fill{height:8px;border-radius:99px;transition:.3s;}
+.tl-val{font-size:.70rem;font-weight:700;color:var(--text);width:88px;flex-shrink:0;}
+.donuts{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin-bottom:20px;}
+.donut{background:var(--card);border-radius:var(--radius);padding:18px 12px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);}
+.donut svg{width:78px;height:78px;}
+.donut .dv{font-size:1.3rem;font-weight:900;color:#fff;margin:7px 0 3px;}
+.donut .dl{font-size:.69rem;color:var(--text2);}
+.ix-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:12px;}
+.ix-card{background:var(--card);border-radius:var(--radius);padding:18px 14px;cursor:pointer;box-shadow:var(--shadow);border:1px solid var(--border);transition:.2s;text-align:center;}
+.ix-card:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.ix-card .ii{font-size:1.8rem;margin-bottom:8px;}
+.ix-card .in{font-size:.61rem;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;}
+.ix-card .it{font-size:.80rem;font-weight:700;color:var(--text);margin-top:3px;}
+.stat-bar-wrap{margin-bottom:20px;}
+.gauges{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:20px;}
+.gauge{background:var(--card);border-radius:var(--radius);padding:16px 12px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow);}
+.gauge-val{font-size:1.6rem;font-weight:900;color:var(--teal);line-height:1;}
+.gauge-bar{height:5px;border-radius:99px;background:var(--navy3);margin:8px 0 6px;overflow:hidden;}
+.gauge-fill{height:5px;border-radius:99px;background:var(--teal);}
+.gauge-lbl{font-size:.67rem;color:var(--text2);text-transform:uppercase;letter-spacing:.8px;}
+.hl-box{background:var(--teal-soft);border:1px solid var(--border2);border-radius:var(--radius);padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;gap:14px;}
+.hl-num{font-size:2rem;font-weight:900;color:var(--teal);line-height:1;flex-shrink:0;}
+.hl-txt{font-size:.82rem;color:var(--text2);line-height:1.5;}
+.hl-txt strong{color:var(--text);display:block;font-size:.9rem;margin-bottom:2px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+.pf{text-align:center;padding:36px 0 16px;color:var(--muted);font-size:.75rem;}
+@media(max-width:600px){.sh{flex-direction:column;text-align:center;padding:18px;}.nav-tab{font-size:.64rem;padding:4px 9px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-top">
+    <a class="nav-logo" href="#" onclick="go('cover');return false;">
+      <svg viewBox="0 0 110 100" width="42" height="38" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="42" width="8" height="26" rx="2" fill="#A855F7"/>
+        <rect x="20" y="34" width="8" height="34" rx="2" fill="#00C8C8"/>
+        <rect x="32" y="24" width="8" height="44" rx="2" fill="#4CAF50"/>
+        <rect x="44" y="14" width="8" height="54" rx="2" fill="#E8401C"/>
+        <polygon points="48,4 42,16 54,16" fill="#E8401C"/>
+        <path d="M4 68 L12 82 L88 82 L96 68 Z" fill="none" stroke="#00C8C8" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="0" y1="68" x2="8" y2="68" stroke="#00C8C8" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="22" cy="93" r="7" fill="#00C8C8"/>
+        <circle cx="74" cy="93" r="7" fill="#00C8C8"/>
+      </svg>
+      <span style="color:#fff;font-size:1rem;font-weight:800;letter-spacing:-.2px;">Tendencys</span>
+      <div class="logo-div"></div>
+      <span class="logo-label">SLA's 2026</span>
+    </a>
+  </div>
+  <div class="nav-bottom">
+    <button class="nav-tab active" onclick="go('cover')">Portada</button>
+    <button class="nav-tab" onclick="go('index')">Índice</button>
+    <button class="nav-tab" onclick="go('general')">Generales</button>
+    <button class="nav-tab" onclick="go('country')">Country Mgr</button>
+    <button class="nav-tab" onclick="go('finanzas')">Finanzas</button>
+    <button class="nav-tab" onclick="go('partnerships')">Partnerships</button>
+    <button class="nav-tab" onclick="go('ventas')">Ventas</button>
+    <button class="nav-tab" onclick="go('corpsales')">Corp. Sales</button>
+    <button class="nav-tab" onclick="go('ops')">Operaciones</button>
+    <button class="nav-tab" onclick="go('fulfillment')">Fulfillment</button>
+    <button class="nav-tab" onclick="go('legal')">Legal</button>
+    <button class="nav-tab" onclick="go('ltl')">LTL</button>
+    <button class="nav-tab" onclick="go('ftl')">FTL</button>
+    <button class="nav-tab" onclick="go('marketing')">Marketing</button>
+    <button class="nav-tab" onclick="go('it')">Product & IT</button>
+    <button class="nav-tab" onclick="go('rrhh')">RRHH</button>
+    <button class="nav-tab" onclick="go('growth')">Growth</button>
+    <button class="nav-tab" onclick="go('bi')">BI / Estrategia</button>
+  </div>
+</nav>
+
+<!-- PORTADA -->
+<div id="cover" class="page active">
+  <div class="cover">
+    <div class="cover-grid"></div><div class="cover-glow"></div>
+    <div class="cover-badge">📋 Edición 2026 · Global</div>
+    <div class="cover-logo"><span style="color:#fff;font-size:2.8rem;font-weight:900;letter-spacing:-.5px;">Tendencys</span></div>
+    <h1>SLA's <em>Tendencys</em></h1>
+    <p class="cover-sub">Acuerdos de Nivel de Servicio Globales · Estándares de excelencia operativa para cada área de la empresa</p>
+    <div class="cover-stats">
+      <div class="cstat"><div class="n">15</div><div class="l">Áreas</div></div>
+      <div class="cstat"><div class="n">150+</div><div class="l">Métricas</div></div>
+      <div class="cstat"><div class="n">99.9%</div><div class="l">Uptime meta</div></div>
+      <div class="cstat"><div class="n">2026</div><div class="l">Edición</div></div>
+    </div>
+    <div class="cover-depts">
+      <span class="cdept">🌎 Country Managers</span><span class="cdept">💰 Finanzas</span>
+      <span class="cdept">🤝 Partnerships</span><span class="cdept">📈 Ventas</span>
+      <span class="cdept">🏢 Corporate Sales</span><span class="cdept">⚙️ Operaciones</span>
+      <span class="cdept">📦 Fulfillment</span><span class="cdept">⚖️ Legal</span>
+      <span class="cdept">🚚 LTL</span><span class="cdept">🚛 FTL</span>
+      <span class="cdept">📣 Marketing</span><span class="cdept">💻 Product & IT</span>
+      <span class="cdept">👥 RRHH</span><span class="cdept">🌱 Growth</span>
+      <span class="cdept">📊 BI / Estrategia</span>
+    </div>
+  </div>
+</div>
+
+<!-- ÍNDICE -->
+<div id="index" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">📑</div><div><h2>Índice General</h2><p>Navega a cualquier sección de los SLA's</p></div></div>
+    <div class="ix-grid">
+      <div class="ix-card" onclick="go('general')"><div class="ii">📋</div><div class="in">Base</div><div class="it">Generales</div></div>
+      <div class="ix-card" onclick="go('country')"><div class="ii">🌎</div><div class="in">01</div><div class="it">Country Managers</div></div>
+      <div class="ix-card" onclick="go('finanzas')"><div class="ii">💰</div><div class="in">02</div><div class="it">Finanzas</div></div>
+      <div class="ix-card" onclick="go('partnerships')"><div class="ii">🤝</div><div class="in">03</div><div class="it">Partnerships</div></div>
+      <div class="ix-card" onclick="go('ventas')"><div class="ii">📈</div><div class="in">04</div><div class="it">Ventas</div></div>
+      <div class="ix-card" onclick="go('corpsales')"><div class="ii">🏢</div><div class="in">05</div><div class="it">Corporate Sales</div></div>
+      <div class="ix-card" onclick="go('ops')"><div class="ii">⚙️</div><div class="in">06</div><div class="it">Operaciones</div></div>
+      <div class="ix-card" onclick="go('fulfillment')"><div class="ii">📦</div><div class="in">07</div><div class="it">Fulfillment</div></div>
+      <div class="ix-card" onclick="go('legal')"><div class="ii">⚖️</div><div class="in">08</div><div class="it">Legal</div></div>
+      <div class="ix-card" onclick="go('ltl')"><div class="ii">🚚</div><div class="in">09</div><div class="it">LTL</div></div>
+      <div class="ix-card" onclick="go('ftl')"><div class="ii">🚛</div><div class="in">10</div><div class="it">FTL</div></div>
+      <div class="ix-card" onclick="go('marketing')"><div class="ii">📣</div><div class="in">11</div><div class="it">Marketing</div></div>
+      <div class="ix-card" onclick="go('it')"><div class="ii">💻</div><div class="in">12</div><div class="it">Product & IT</div></div>
+      <div class="ix-card" onclick="go('rrhh')"><div class="ii">👥</div><div class="in">13</div><div class="it">RRHH</div></div>
+      <div class="ix-card" onclick="go('growth')"><div class="ii">🌱</div><div class="in">14</div><div class="it">Growth</div></div>
+      <div class="ix-card" onclick="go('bi')"><div class="ii">📊</div><div class="in">15</div><div class="it">BI / Estrategia</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- GENERALES -->
+<div id="general" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">📋</div><div><h2>SLA's Generales</h2><p>Normas base aplicables a toda la empresa</p></div></div>
+    <div class="gauges">
+      <div class="gauge"><div class="gauge-val">30m</div><div class="gauge-bar"><div class="gauge-fill" style="width:5%;background:var(--green)"></div></div><div class="gauge-lbl">Slack urgente</div></div>
+      <div class="gauge"><div class="gauge-val">4h</div><div class="gauge-bar"><div class="gauge-fill" style="width:15%;background:var(--teal)"></div></div><div class="gauge-lbl">Soporte técnico resp.</div></div>
+      <div class="gauge"><div class="gauge-val">8h</div><div class="gauge-bar"><div class="gauge-fill" style="width:30%;background:var(--yellow)"></div></div><div class="gauge-lbl">Slack no urgente</div></div>
+      <div class="gauge"><div class="gauge-val">24h</div><div class="gauge-bar"><div class="gauge-fill" style="width:50%;background:var(--yellow)"></div></div><div class="gauge-lbl">Email interno</div></div>
+      <div class="gauge"><div class="gauge-val">24h</div><div class="gauge-bar"><div class="gauge-fill" style="width:50%;background:var(--yellow)"></div></div><div class="gauge-lbl">Soporte técnico res.</div></div>
+      <div class="gauge"><div class="gauge-val">48h</div><div class="gauge-bar"><div class="gauge-fill" style="width:100%;background:var(--red)"></div></div><div class="gauge-lbl">Email externo</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>💱 Manejo de Monedas</h3>
+        <div class="metric"><span class="lbl">Moneda local</span><span class="val">MXN · EUR · USD</span></div>
+        <div class="metric"><span class="lbl">Formato internacional</span><span class="val">$1,000.00 USD</span></div>
+        <div class="metric"><span class="lbl">Facturas internas</span><span class="val b">Moneda + tipo de cambio</span></div>
+      </div>
+      <div class="card"><h3>✍️ Ortografía y Gramática</h3>
+        <div class="metric"><span class="lbl">Herramienta recomendada</span><span class="val">Grammarly</span></div>
+        <div class="metric"><span class="lbl">Acentos</span><span class="val g">Obligatorios</span></div>
+        <div class="metric"><span class="lbl">Lenguaje</span><span class="val">Profesional y claro</span></div>
+      </div>
+      <div class="card"><h3>💬 Iconos Slack</h3>
+        <div class="metric"><span class="lbl">✅ Afirmación</span><span class="val g">Leído / Confirmado</span></div>
+        <div class="metric"><span class="lbl">❌ Negación</span><span class="val r">No posible</span></div>
+        <div class="metric"><span class="lbl">⏳ Espera</span><span class="val o">En progreso</span></div>
+        <div class="metric"><span class="lbl">📌 Importante</span><span class="val">Tareas críticas</span></div>
+      </div>
+      <div class="card"><h3>📄 Documentos</h3>
+        <div class="metric"><span class="lbl">Formato</span><span class="val">Plantilla oficial</span></div>
+        <div class="metric"><span class="lbl">Presentaciones</span><span class="val">Intro · Dev · Conclusión</span></div>
+        <div class="metric"><span class="lbl">Nomenclatura</span><span class="val b">Informe_Mes_Año</span></div>
+      </div>
+      <div class="card"><h3>🔒 Privacidad y Seguridad</h3>
+        <div class="metric"><span class="lbl">Contraseñas</span><span class="val">Cambio regular</span></div>
+        <div class="metric"><span class="lbl">Datos sensibles</span><span class="val r">No por email sin cifrar</span></div>
+        <div class="metric"><span class="lbl">Accesos</span><span class="val">Permisos configurados</span></div>
+      </div>
+      <div class="card"><h3>🤝 Reuniones</h3>
+        <div class="metric"><span class="lbl">Agenda previa</span><span class="val g">Siempre requerida</span></div>
+        <div class="metric"><span class="lbl">Puntualidad</span><span class="val g">Iniciar y terminar a tiempo</span></div>
+        <div class="metric"><span class="lbl">Notas de reunión</span><span class="val">Enviar al finalizar</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTRY MANAGERS -->
+<div id="country" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">🌎</div><div><h2>Country Managers</h2><p>Estándares de servicio, tiempos de respuesta y compromisos del equipo comercial, soporte y BDM</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">&lt;5m</div><div class="kl">Email respuesta</div></div>
+      <div class="kpi"><div class="kv">&lt;15m</div><div class="kl">WhatsApp</div></div>
+      <div class="kpi"><div class="kv">&gt;99%</div><div class="kl">Envíos entregados</div></div>
+      <div class="kpi"><div class="kv">≥92%</div><div class="kl">Satisfacción chat</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📞 Commercial MDR/SDR</h3>
+        <div class="metric"><span class="lbl">Email</span><span class="val g">&lt;5 min</span></div>
+        <div class="metric"><span class="lbl">WhatsApp</span><span class="val g">&lt;15 min</span></div>
+        <div class="metric"><span class="lbl">Llamada</span><span class="val">&lt;1 hora</span></div>
+        <div class="metric"><span class="lbl">Intentos de contacto</span><span class="val">5 en 3 días</span></div>
+        <div class="metric"><span class="lbl">Propuesta de precios</span><span class="val o">2 hrs</span></div>
+        <div class="metric"><span class="lbl">Alerta Churn</span><span class="val r">2 hrs</span></div>
+        <div class="metric"><span class="lbl">Grupos CSR WhatsApp</span><span class="val g">≤30 min</span></div>
+        <div class="metric"><span class="lbl">Seguimiento de cuenta</span><span class="val c">c/24 hrs (1ª semana)</span></div>
+        <div class="metric"><span class="lbl">Solicitud de créditos</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Firma de créditos</span><span class="val">72 hrs</span></div>
+      </div>
+      <div class="card"><h3>🔗 Integraciones</h3>
+        <div class="metric"><span class="lbl">Contacto para llamada</span><span class="val">2 días</span></div>
+        <div class="metric"><span class="lbl">Proceso de integración</span><span class="val g">30 min</span></div>
+        <div class="metric"><span class="lbl">Ticket de seguimiento</span><span class="val g">Al instante</span></div>
+        <div class="metric"><span class="lbl">Seguimiento de solución</span><span class="val">48–72 hrs</span></div>
+        <div class="metric"><span class="lbl">Desarrollo de cuenta</span><span class="val c">c/24 hrs (1ª semana)</span></div>
+      </div>
+      <div class="card"><h3>🚚 Carriers</h3>
+        <div class="metric"><span class="lbl">Envíos entregados</span><span class="val g">&gt;99%</span></div>
+        <div class="metric"><span class="lbl">Envíos en incidencia</span><span class="val g">&lt;0.5%</span></div>
+        <div class="metric"><span class="lbl">Solución de incidencia</span><span class="val">&lt;5 días</span></div>
+      </div>
+      <div class="card"><h3>💬 Chat y Tickets</h3>
+        <div class="metric"><span class="lbl">1ª respuesta chat (9–19h)</span><span class="val g">≤25 seg</span></div>
+        <div class="metric"><span class="lbl">Satisfacción + venta cruzada</span><span class="val g">≥92%</span></div>
+        <div class="metric"><span class="lbl">1ª respuesta ticket</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Solución total</span><span class="val o">7 días</span></div>
+        <div class="metric"><span class="lbl">Incidencias a resolver</span><span class="val g">100%</span></div>
+      </div>
+      <div class="card"><h3>🏷️ Posicionamiento y Slack</h3>
+        <div class="metric"><span class="lbl">Exposiciones comerciales</span><span class="val c">Mín. 2 veces al mes</span></div>
+        <div class="metric"><span class="lbl">Slack 1ª respuesta</span><span class="val g">15 min</span></div>
+        <div class="metric"><span class="lbl">Reacción de enterado</span><span class="val">&gt;30 min</span></div>
+      </div>
+      <div class="card"><h3>🏗️ BDM</h3>
+        <div class="metric"><span class="lbl">Propuesta custom clientes</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Contrapropuesta carriers</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Doc. legal (borrador)</span><span class="val">2 días</span></div>
+        <div class="metric"><span class="lbl">Apertura de cuenta</span><span class="val">2–3 días</span></div>
+        <div class="metric"><span class="lbl">Documentación IT</span><span class="val g">1 día</span></div>
+        <div class="metric"><span class="lbl">Price Plan</span><span class="val g">1 día</span></div>
+        <div class="metric"><span class="lbl">Negociación de tarifas</span><span class="val o">5 días</span></div>
+        <div class="metric"><span class="lbl">Integración en plataforma</span><span class="val o">15–20 días</span></div>
+        <div class="metric"><span class="lbl">Pruebas operativas</span><span class="val c">Primeros 5 días</span></div>
+        <div class="metric"><span class="lbl">Reunión proveedores activos</span><span class="val">c/15 días</span></div>
+        <div class="metric"><span class="lbl">Cartera top clientes</span><span class="val">2 hrs, 1 vez/semana</span></div>
+      </div>
+      <div class="card"><h3>👥 Recursos Humanos</h3>
+        <div class="metric"><span class="lbl">Apertura de vacante</span><span class="val g">Al instante</span></div>
+        <div class="metric"><span class="lbl">Filtrado de candidatos</span><span class="val">5 días post-apertura</span></div>
+        <div class="metric"><span class="lbl">Contratación</span><span class="val">3 días post-entrevista</span></div>
+        <div class="metric"><span class="lbl">Alta de personal</span><span class="val g">1er día de ingreso</span></div>
+        <div class="metric"><span class="lbl">Capacitación nuevos ingresos</span><span class="val">7 días</span></div>
+        <div class="metric"><span class="lbl">Evaluación (30-60-90)</span><span class="val c">1 vez al mes</span></div>
+        <div class="metric"><span class="lbl">Envío info comisiones</span><span class="val c">Día 5 c/mes</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINANZAS -->
+<div id="finanzas" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">💰</div><div><h2>SLA's Finanzas</h2><p>Tesorería · Nómina · Contabilidad · Facturación · Costos · Planeación</p></div></div>
+    <div class="tl-wrap">
+      <h3>📅 Calendario Financiero Mensual</h3>
+      <div class="tl-bar"><span class="tl-lbl">Contacto clientes con adeudos</span><div class="tl-track"><div class="tl-fill" style="width:17%;background:var(--teal)"></div></div><span class="tl-val">Día 5</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Auditoría Custom Global</span><div class="tl-track"><div class="tl-fill" style="width:23%;background:var(--teal)"></div></div><span class="tl-val">Antes día 7</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Cálculo de impuestos</span><div class="tl-track"><div class="tl-fill" style="width:33%;background:var(--yellow)"></div></div><span class="tl-val">Antes día 10</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Comisiones globales</span><div class="tl-track"><div class="tl-fill" style="width:47%;background:var(--yellow)"></div></div><span class="tl-val">Antes día 14</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Pago de impuestos</span><div class="tl-track"><div class="tl-fill" style="width:57%;background:var(--red)"></div></div><span class="tl-val">Máx. día 17</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>🏦 Tesorería</h3>
+        <div class="metric"><span class="lbl">Reporte de gastos por dirección</span><span class="val">Máx. 10 días post-cierre</span></div>
+        <div class="metric"><span class="lbl">Revisión contracargos</span><span class="val">Máx. 5 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Reembolso sin actividad</span><span class="val g">Máx. 3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Error de depósito</span><span class="val g">Máx. 3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Reembolso nacional</span><span class="val o">Máx. 10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Reembolso internacional</span><span class="val r">Máx. 22 días hábiles</span></div>
+        <div class="metric"><span class="lbl">COD (Cash on Delivery)</span><span class="val g">Máx. 3 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>💼 Nómina y Beneficios</h3>
+        <div class="metric"><span class="lbl">Habilitación comisiones globales</span><span class="val">Antes del día 14</span></div>
+        <div class="metric"><span class="lbl">Incidentes vales de despensa</span><span class="val g">Máx. 1 día hábil</span></div>
+        <div class="metric"><span class="lbl">Incidentes de nómina</span><span class="val g">Máx. 1 día hábil</span></div>
+      </div>
+      <div class="card"><h3>📊 Contabilidad</h3>
+        <div class="metric"><span class="lbl">Informes de ingresos/ventas</span><span class="val">Primeros 12 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Cálculo de impuestos</span><span class="val">Antes del día 10</span></div>
+        <div class="metric"><span class="lbl">Pago de impuestos</span><span class="val o">Máx. día 17</span></div>
+      </div>
+      <div class="card"><h3>💳 Cuentas por Cobrar</h3>
+        <div class="metric"><span class="lbl">Contacto adeudos/créditos vencidos</span><span class="val">Primeros 5 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Saldo negativo ≥15 días</span><span class="val g">1 día hábil conciliador</span></div>
+      </div>
+      <div class="card"><h3>🧾 Facturación</h3>
+        <div class="metric"><span class="lbl">Brasil (Recarga)</span><span class="val">Último día del mes</span></div>
+        <div class="metric"><span class="lbl">México, Colombia y Guatemala</span><span class="val">Antes del último día</span></div>
+        <div class="metric"><span class="lbl">España e India</span><span class="val c">Primeros 5 días mes sig.</span></div>
+        <div class="metric"><span class="lbl">Fulfillment México</span><span class="val">Antes día 10 mes sig.</span></div>
+      </div>
+      <div class="card"><h3>📉 Costos y Margen</h3>
+        <div class="metric"><span class="lbl">Cálculo margen operativo</span><span class="val">Máx. 7 días post-cierre</span></div>
+        <div class="metric"><span class="lbl">Propuestas elasticidad precios</span><span class="val">Máx. 3 días post-cálculo</span></div>
+        <div class="metric"><span class="lbl">Cargos adicionales T4-T5</span><span class="val o">3 días previos</span></div>
+        <div class="metric"><span class="lbl">Auditoría costos vs carriers</span><span class="val g">Diaria</span></div>
+        <div class="metric"><span class="lbl">Auditoría Custom Global</span><span class="val">Antes del día 7</span></div>
+      </div>
+      <div class="card"><h3>📐 Planeación Financiera</h3>
+        <div class="metric"><span class="lbl">Presupuestos nómina x depto/país</span><span class="val g">Máx. 1 día post-cierre</span></div>
+        <div class="metric"><span class="lbl">Presupuestos marketing x país</span><span class="val g">Máx. 1 día post-cierre Q</span></div>
+        <div class="metric"><span class="lbl">Resumen ejecutivo x país</span><span class="val">Máx. 3 días post-cierre</span></div>
+        <div class="metric"><span class="lbl">Proyecciones y análisis</span><span class="val o">Máx. 15 días hábiles</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNERSHIPS -->
+<div id="partnerships" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">🤝</div><div><h2>Partnerships Estratégicos</h2><p>Prospección · Negociación · Desarrollo · Escalamiento</p></div></div>
+    <div class="tl-wrap">
+      <h3>🗓 Ciclo de Negociación y Cierre</h3>
+      <div class="tl-bar"><span class="tl-lbl">Contacto inicial</span><div class="tl-track"><div class="tl-fill" style="width:5%;background:var(--green)"></div></div><span class="tl-val">3 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Propuesta / RFP/RFQ</span><div class="tl-track"><div class="tl-fill" style="width:12%;background:var(--teal)"></div></div><span class="tl-val">48 hrs / 7 días</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Negociación términos</span><div class="tl-track"><div class="tl-fill" style="width:17%;background:var(--yellow)"></div></div><span class="tl-val">Máx. 10 días</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Formalización contrato</span><div class="tl-track"><div class="tl-fill" style="width:50%;background:var(--yellow)"></div></div><span class="tl-val">Máx. 30 días</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Cierre total (mín. 3 reuniones)</span><div class="tl-track"><div class="tl-fill" style="width:100%;background:var(--red)"></div></div><span class="tl-val">Máx. 60 días</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>🔍 Prospección y Evaluación</h3>
+        <div class="metric"><span class="lbl">Contacto inicial tras oportunidad</span><span class="val g">Máx. 3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Seguimiento oportunidades</span><span class="val">c/48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Resolución problemas operativos</span><span class="val g">Máx. 24 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>🔄 Mantenimiento de la Relación</h3>
+        <div class="metric"><span class="lbl">Reunión presencial estratégica</span><span class="val">1 reunión c/3 meses</span></div>
+        <div class="metric"><span class="lbl">Respuesta incidencias / ajustes</span><span class="val">Máx. 48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Reporte de desempeño</span><span class="val c">Mensual</span></div>
+      </div>
+      <div class="card"><h3>🚀 Desarrollo y Gestión</h3>
+        <div class="metric"><span class="lbl">Viabilidad de oportunidad</span><span class="val g">24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Escalaciones críticas</span><span class="val">Máx. 48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">EXPOs ecommerce/tecnología</span><span class="val c">2 anuales, mín. 1 activa</span></div>
+      </div>
+      <div class="card"><h3>⚠️ Escalamiento y Mejora</h3>
+        <div class="metric"><span class="lbl">Revisión legal antes de firma</span><span class="val">Máx. 48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Revisión acuerdos estratégicos</span><span class="val c">c/6 meses</span></div>
+        <div class="metric"><span class="lbl">Conclusiones de revisión</span><span class="val">Máx. 15 días hábiles</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VENTAS -->
+<div id="ventas" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">📈</div><div><h2>Ventas (Área Comercial)</h2><p>Leads · Cotizaciones · Onboarding · Retención · Reportes</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">30m</div><div class="kl">1ª resp. WA lead</div></div>
+      <div class="kpi"><div class="kv">15m</div><div class="kl">WA cliente</div></div>
+      <div class="kpi"><div class="kv">24h</div><div class="kl">Propuesta comercial</div></div>
+      <div class="kpi"><div class="kv">7d</div><div class="kl">Onboarding completo</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📲 Respuesta a Leads</h3>
+        <div class="metric"><span class="lbl">WA (lead marketing)</span><span class="val g">Máx. 30 min</span></div>
+        <div class="metric"><span class="lbl">Llamada (lead marketing)</span><span class="val">Máx. 2 hrs</span></div>
+        <div class="metric"><span class="lbl">WA cliente</span><span class="val g">15 min</span></div>
+        <div class="metric"><span class="lbl">Llamada cliente</span><span class="val g">Inmediato / 30 min</span></div>
+        <div class="metric"><span class="lbl">Chat</span><span class="val">15–20 min</span></div>
+        <div class="metric"><span class="lbl">Grupos de WhatsApp</span><span class="val g">10–15 min</span></div>
+        <div class="metric"><span class="lbl">Email / Grupos Slack</span><span class="val">30 min</span></div>
+      </div>
+      <div class="card"><h3>💬 Cotizaciones y Propuestas</h3>
+        <div class="metric"><span class="lbl">Propuesta comercial</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Cotización custom</span><span class="val g">Máx. 2 hrs</span></div>
+        <div class="metric"><span class="lbl">Aprobación/Rechazo crédito</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Tiempo aprobación crédito</span><span class="val o">24–48 hrs</span></div>
+      </div>
+      <div class="card"><h3>🎯 Onboarding</h3>
+        <div class="metric"><span class="lbl">Sesión inicial</span><span class="val g">Máx. 30 min</span></div>
+        <div class="metric"><span class="lbl">Proceso completo</span><span class="val">7 días desde activación</span></div>
+        <div class="metric"><span class="lbl">Seguimiento día 7</span><span class="val g">✓ Contacto</span></div>
+        <div class="metric"><span class="lbl">Seguimiento día 15</span><span class="val g">✓ Contacto</span></div>
+        <div class="metric"><span class="lbl">Seguimiento día 30</span><span class="val g">✓ Contacto</span></div>
+        <div class="metric"><span class="lbl">Resolución problemas</span><span class="val">Máx. 24 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>🔄 Renovaciones y Retención</h3>
+        <div class="metric"><span class="lbl">Aviso previo vencimiento</span><span class="val o">30 días antes</span></div>
+        <div class="metric"><span class="lbl">Cambio condiciones comerciales</span><span class="val">Máx. 2 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Clientes inactivos (&gt;30 días)</span><span class="val">3 días desde detección</span></div>
+      </div>
+      <div class="card"><h3>📊 Reportes y Análisis</h3>
+        <div class="metric"><span class="lbl">Reporte desempeño ventas</span><span class="val c">Semanal</span></div>
+        <div class="metric"><span class="lbl">Conversión y rentabilidad</span><span class="val c">Mensual</span></div>
+        <div class="metric"><span class="lbl">Implementación mejoras</span><span class="val o">Evaluación 10 días</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CORPORATE SALES -->
+<div id="corpsales" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">🏢</div><div><h2>Corporate Sales</h2><p>Leads · Cotizaciones · Onboarding · Retención · Reportes</p></div></div>
+    <div class="cg">
+      <div class="card"><h3>📲 Respuesta a Leads</h3>
+        <div class="metric"><span class="lbl">WA (lead marketing)</span><span class="val g">Máx. 30 min</span></div>
+        <div class="metric"><span class="lbl">Llamada (lead marketing)</span><span class="val">Máx. 2 hrs</span></div>
+        <div class="metric"><span class="lbl">WA cliente</span><span class="val g">15 min</span></div>
+        <div class="metric"><span class="lbl">Llamada cliente</span><span class="val g">Inmediato / 30 min</span></div>
+        <div class="metric"><span class="lbl">Chat</span><span class="val">15–20 min</span></div>
+        <div class="metric"><span class="lbl">Grupos de WhatsApp</span><span class="val g">10–15 min</span></div>
+        <div class="metric"><span class="lbl">Email / Grupos Slack</span><span class="val">30 min</span></div>
+      </div>
+      <div class="card"><h3>💬 Cotizaciones y Propuestas</h3>
+        <div class="metric"><span class="lbl">Propuesta comercial</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Cotización custom</span><span class="val g">Máx. 2 hrs</span></div>
+        <div class="metric"><span class="lbl">Aprobación/Rechazo crédito</span><span class="val">24 hrs</span></div>
+        <div class="metric"><span class="lbl">Tiempo aprobación crédito</span><span class="val o">24–48 hrs</span></div>
+      </div>
+      <div class="card"><h3>🎯 Onboarding</h3>
+        <div class="metric"><span class="lbl">Sesión inicial</span><span class="val g">Máx. 30 min</span></div>
+        <div class="metric"><span class="lbl">Proceso completo</span><span class="val">7 días desde activación</span></div>
+        <div class="metric"><span class="lbl">Seguimiento día 7</span><span class="val g">✓ Contacto</span></div>
+        <div class="metric"><span class="lbl">Seguimiento día 15</span><span class="val g">✓ Contacto</span></div>
+        <div class="metric"><span class="lbl">Seguimiento día 30</span><span class="val g">✓ Contacto</span></div>
+        <div class="metric"><span class="lbl">Resolución problemas</span><span class="val">Máx. 24 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>🔄 Renovaciones y Retención</h3>
+        <div class="metric"><span class="lbl">Aviso previo vencimiento</span><span class="val o">30 días antes</span></div>
+        <div class="metric"><span class="lbl">Cambio condiciones comerciales</span><span class="val">Máx. 2 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Clientes inactivos (&gt;30 días)</span><span class="val">3 días desde detección</span></div>
+      </div>
+      <div class="card"><h3>📊 Reportes y Análisis</h3>
+        <div class="metric"><span class="lbl">Reporte desempeño ventas</span><span class="val c">Semanal</span></div>
+        <div class="metric"><span class="lbl">Conversión y rentabilidad</span><span class="val c">Mensual</span></div>
+        <div class="metric"><span class="lbl">Implementación mejoras</span><span class="val o">Evaluación 10 días</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPERACIONES -->
+<div id="ops" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">⚙️</div><div><h2>Operaciones – Servicio al Cliente</h2><p>Eficiencia · Resolución · Calidad · Experiencia · Resultados</p></div></div>
+    <div class="gauges">
+      <div class="gauge"><div class="gauge-val">5m</div><div class="gauge-bar"><div class="gauge-fill" style="width:10%;background:var(--green)"></div></div><div class="gauge-lbl">WhatsApp resp.</div></div>
+      <div class="gauge"><div class="gauge-val">1m</div><div class="gauge-bar"><div class="gauge-fill" style="width:3%;background:var(--green)"></div></div><div class="gauge-lbl">Chat resp.</div></div>
+      <div class="gauge"><div class="gauge-val">10m</div><div class="gauge-bar"><div class="gauge-fill" style="width:18%;background:var(--teal)"></div></div><div class="gauge-lbl">Tickets resp.</div></div>
+      <div class="gauge"><div class="gauge-val">≥90</div><div class="gauge-bar"><div class="gauge-fill" style="width:90%;background:var(--green)"></div></div><div class="gauge-lbl">Calidad (pts)</div></div>
+      <div class="gauge"><div class="gauge-val">4.5</div><div class="gauge-bar"><div class="gauge-fill" style="width:90%;background:var(--teal)"></div></div><div class="gauge-lbl">Satisfacción /5</div></div>
+      <div class="gauge"><div class="gauge-val">≥98%</div><div class="gauge-bar"><div class="gauge-fill" style="width:98%;background:var(--green)"></div></div><div class="gauge-lbl">Retención</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>⚡ Eficiencia de Respuesta</h3>
+        <div class="metric"><span class="lbl">WhatsApp (1ª respuesta)</span><span class="val g">≤5 min</span></div>
+        <div class="metric"><span class="lbl">Chat (1ª respuesta)</span><span class="val g">≤1 min</span></div>
+        <div class="metric"><span class="lbl">Tickets sistema (1ª respuesta)</span><span class="val g">≤10 min</span></div>
+      </div>
+      <div class="card"><h3>✅ Gestión y Calidad</h3>
+        <div class="metric"><span class="lbl">Resolución de tickets</span><span class="val o">≤20 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Seguimiento al cliente</span><span class="val">≤48 horas</span></div>
+        <div class="metric"><span class="lbl">Evaluación de calidad</span><span class="val g">≥90 puntos</span></div>
+      </div>
+      <div class="card"><h3>😊 Experiencia y Resultados</h3>
+        <div class="metric"><span class="lbl">Satisfacción del cliente</span><span class="val g">≥4.5 / 5</span></div>
+        <div class="metric"><span class="lbl">Clientes retenidos</span><span class="val g">≥98%</span></div>
+        <div class="metric"><span class="lbl">Balance monto recuperado</span><span class="val g">≥0</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FULFILLMENT -->
+<div id="fulfillment" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">📦</div><div><h2>Fulfillment</h2><p>Recepción · Pick & Pack · Envío · Devoluciones · Soporte</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">99.5%</div><div class="kl">Precisión inventario</div></div>
+      <div class="kpi"><div class="kv">≥99.9%</div><div class="kl">Exactitud picking</div></div>
+      <div class="kpi"><div class="kv">100%</div><div class="kl">Órdenes antes 4pm</div></div>
+      <div class="kpi"><div class="kv">5m</div><div class="kl">Packing máx/orden</div></div>
+    </div>
+    <div class="tl-wrap">
+      <h3>📊 Métricas de Desempeño Operativo</h3>
+      <div class="tl-bar"><span class="tl-lbl">Precisión de inventario</span><div class="tl-track"><div class="tl-fill" style="width:99.5%;background:var(--green)"></div></div><span class="tl-val">99.5%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Exactitud de picking</span><div class="tl-track"><div class="tl-fill" style="width:99.9%;background:var(--green)"></div></div><span class="tl-val">≥99.9%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Órdenes antes 4pm</span><div class="tl-track"><div class="tl-fill" style="width:100%;background:var(--teal)"></div></div><span class="tl-val">100%</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📥 Recepción e Ingreso</h3>
+        <div class="metric"><span class="lbl">Procesamiento de inventario</span><span class="val">Máx. 24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Verificación calidad</span><span class="val">&lt;24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Precisión de stock</span><span class="val g">99.5%</span></div>
+        <div class="metric"><span class="lbl">Inventario cíclico</span><span class="val c">c/3 meses</span></div>
+      </div>
+      <div class="card"><h3>🏷️ Pick & Pack</h3>
+        <div class="metric"><span class="lbl">Pedidos estándar</span><span class="val">&lt;12 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Pedidos urgentes</span><span class="val g">&lt;4 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Exactitud de picking</span><span class="val g">≥99.9%</span></div>
+        <div class="metric"><span class="lbl">Picking máx.</span><span class="val g">1:30 min/orden</span></div>
+        <div class="metric"><span class="lbl">Packing máx.</span><span class="val g">5 min/orden</span></div>
+      </div>
+      <div class="card"><h3>🚀 Envío y Despacho</h3>
+        <div class="metric"><span class="lbl">Despacho estándar</span><span class="val">&lt;24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Despacho urgente</span><span class="val g">&lt;8 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Resp. incidencias/tickets</span><span class="val">&lt;24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Escal. envío tardío &gt;5 días</span><span class="val">&lt;24 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>↩️ Devoluciones</h3>
+        <div class="metric"><span class="lbl">Procesamiento</span><span class="val">&lt;48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Reintegración inventario</span><span class="val">&lt;48 hrs post-validación</span></div>
+        <div class="metric"><span class="lbl">Reporte inventario dañado</span><span class="val">&lt;24 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>🎧 Soporte al Cliente</h3>
+        <div class="metric"><span class="lbl">Consultas stock y pedidos</span><span class="val g">&lt;2 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Resolución incidencias operativas</span><span class="val o">24–48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Discrepancias inventario</span><span class="val">Máx. 5 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>📊 Evaluación</h3>
+        <div class="metric"><span class="lbl">Revisión desempeño logístico</span><span class="val c">Mensual</span></div>
+        <div class="metric"><span class="lbl">Implementación mejoras</span><span class="val o">Evaluación 10 días</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEGAL -->
+<div id="legal" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">⚖️</div><div><h2>SLA's Legal</h2><p>Contratos · Disputas · Compliance · Privacidad · PI · Asesoría</p></div></div>
+    <div class="cg">
+      <div class="card"><h3>📝 Contratos</h3>
+        <div class="metric"><span class="lbl">Revisión general de contratos</span><span class="val">Máx. 5 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Elaboración de contratos nuevos</span><span class="val r">Máx. 15 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Proceso de firmas de contratos</span><span class="val g">Máx. 1 día hábil</span></div>
+        <div class="metric"><span class="lbl">Créditos</span><span class="val g">Máx. 1 día hábil</span></div>
+      </div>
+      <div class="card"><h3>⚠️ Disputas y Reclamaciones</h3>
+        <div class="metric"><span class="lbl">Respuesta inicial</span><span class="val">&lt;48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Análisis y estrategia</span><span class="val o">Máx. 15 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Requerimientos judiciales</span><span class="val">Máx. 5 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Resolución reclamaciones</span><span class="val r">Máx. 30 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>📋 Cumplimiento Normativo</h3>
+        <div class="metric"><span class="lbl">Revisión cambios normativos</span><span class="val c">c/3 meses</span></div>
+        <div class="metric"><span class="lbl">Consultas normativas internas</span><span class="val">72 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Nuevos requisitos legales</span><span class="val r">Máx. 60 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Auditorías de cumplimiento</span><span class="val c">c/6 meses</span></div>
+      </div>
+      <div class="card"><h3>🔐 Datos y Privacidad</h3>
+        <div class="metric"><span class="lbl">Solicitudes acceso/eliminación</span><span class="val">Máx. 10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Evaluación incidentes seguridad</span><span class="val g">&lt;24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Mitigación del incidente</span><span class="val">Máx. 7 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Revisión política privacidad</span><span class="val c">c/12 meses</span></div>
+      </div>
+      <div class="card"><h3>™️ Propiedad Intelectual</h3>
+        <div class="metric"><span class="lbl">Registro marcas / patentes</span><span class="val">Máx. 30 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Respuesta reclamaciones PI</span><span class="val">&lt;10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Monitoreo marcas y patentes</span><span class="val c">Trimestral</span></div>
+      </div>
+      <div class="card"><h3>📊 Asesoría Interna</h3>
+        <div class="metric"><span class="lbl">Consultas legales de áreas</span><span class="val">Máx. 48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Preparación reportes legales</span><span class="val">Máx. 7 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Análisis riesgos proyectos</span><span class="val o">Máx. 15 días hábiles</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LTL -->
+<div id="ltl" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">🚚</div><div><h2>Carga Consolidada – LTL</h2><p>Prospección · Cotización · Coordinación · Monitoreo · Reclamos · Onboarding</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">≥15%</div><div class="kl">Conversión leads/mes</div></div>
+      <div class="kpi"><div class="kv">≥95%</div><div class="kl">Entregas a tiempo</div></div>
+      <div class="kpi"><div class="kv">&lt;1.5h</div><div class="kl">Contacto lead</div></div>
+      <div class="kpi"><div class="kv">10d</div><div class="kl">Activación cliente</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>🎯 Prospección y Ventas</h3>
+        <div class="metric"><span class="lbl">Contacto con lead</span><span class="val g">&lt;1.5 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">1er contacto → oferta</span><span class="val">Máx. 24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Oferta → cierre calificado</span><span class="val">Máx. 7 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Tasa mínima de conversión</span><span class="val g">≥15% mensual</span></div>
+      </div>
+      <div class="card"><h3>💲 Cotización Comercial</h3>
+        <div class="metric"><span class="lbl">Cotización estándar</span><span class="val g">&lt;4 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Cotización custom / alto volumen</span><span class="val">Máx. 24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Activación en plataforma</span><span class="val">&lt;48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Validación tarifas carrier</span><span class="val">&lt;24 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>📍 Coordinación de Envíos</h3>
+        <div class="metric"><span class="lbl">Confirmación carrier</span><span class="val g">&lt;6 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Recolección zona metropolitana</span><span class="val">24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Recolección zona foránea</span><span class="val o">48–72 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Instrucciones al carrier</span><span class="val g">&lt;4 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Actualización estatus</span><span class="val c">c/24 hrs o novedades</span></div>
+      </div>
+      <div class="card"><h3>👁️ Monitoreo y Soporte</h3>
+        <div class="metric"><span class="lbl">Consulta estatus del envío</span><span class="val g">&lt;2 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Contacto incidencia carrier</span><span class="val g">&lt;4 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Resolución incidencia</span><span class="val o">Máx. 48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Comunicar demoras críticas</span><span class="val">&lt;6 hrs hábiles</span></div>
+      </div>
+      <div class="card"><h3>📋 Reclamos y Devoluciones</h3>
+        <div class="metric"><span class="lbl">Respuesta a reclamos</span><span class="val">&lt;48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Información con el carrier</span><span class="val">Máx. 5 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Resolución de reclamos</span><span class="val o">Máx. 15 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Reembolsos aprobados</span><span class="val">Máx. 10 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>🌱 Crecimiento y Retención</h3>
+        <div class="metric"><span class="lbl">Resp. clientes Tiers 2–5</span><span class="val g">Máx. 2 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Contacto proactivo activos</span><span class="val c">Mín. 1 reunión/mes</span></div>
+        <div class="metric"><span class="lbl">Mejoras servicio clientes clave</span><span class="val">Máx. 10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Acciones de fidelización</span><span class="val c">Mín. 1 acción trimestral</span></div>
+      </div>
+      <div class="card"><h3>🚀 Activación y Onboarding</h3>
+        <div class="metric"><span class="lbl">Registro → activación operativa</span><span class="val">Máx. 10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Asignación gestor comercial</span><span class="val g">&lt;24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">1er envío tras activación</span><span class="val">Máx. 7 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Seguimiento post-activación</span><span class="val c">Mín. 2 contactos 1er mes</span></div>
+      </div>
+      <div class="card"><h3>📈 Evaluación de Carriers</h3>
+        <div class="metric"><span class="lbl">Revisión de desempeño</span><span class="val c">Mensual</span></div>
+        <div class="metric"><span class="lbl">Tasa mínima entregas a tiempo</span><span class="val g">≥95%</span></div>
+        <div class="metric"><span class="lbl">Actualización tarifas / ajustes</span><span class="val c">Trimestral o según cambios</span></div>
+        <div class="metric"><span class="lbl">Mejoras con carriers</span><span class="val">&lt;5 días hábiles</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FTL -->
+<div id="ftl" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">🚛</div><div><h2>Carga Completa – FTL</h2><p>Publicación · Cumplimiento · Carriers · Merchants · Plataforma · Economía</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">≥90%</div><div class="kl">OTA recolección</div></div>
+      <div class="kpi"><div class="kv">≥90%</div><div class="kl">OTD entrega</div></div>
+      <div class="kpi"><div class="kv">≥90%</div><div class="kl">Tracking activo</div></div>
+      <div class="kpi"><div class="kv">≤5%</div><div class="kl">Incidencias críticas</div></div>
+    </div>
+    <div class="tl-wrap">
+      <h3>📊 Indicadores de Publicación de Cargas</h3>
+      <div class="tl-bar"><span class="tl-lbl">Cargas con ≥1 oferta</span><div class="tl-track"><div class="tl-fill" style="width:70%;background:var(--green)"></div></div><span class="tl-val">≥70%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Cargas tomadas en ≤48h</span><div class="tl-track"><div class="tl-fill" style="width:90%;background:var(--teal)"></div></div><span class="tl-val">≥90%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Cargas en Quick Price</span><div class="tl-track"><div class="tl-fill" style="width:15%;background:var(--yellow)"></div></div><span class="tl-val">≥15%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Cargas expiradas</span><div class="tl-track"><div class="tl-fill" style="width:10%;background:var(--red)"></div></div><span class="tl-val">≤10%</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>🚛 Carriers</h3>
+        <div class="metric"><span class="lbl">Carriers en Tier 5</span><span class="val g">≥10% base activos</span></div>
+        <div class="metric"><span class="lbl">Nuevos carriers activos/mes</span><span class="val g">≥10 por mes</span></div>
+        <div class="metric"><span class="lbl">PODs subidos en plataforma</span><span class="val g">100%</span></div>
+        <div class="metric"><span class="lbl">Carriers con tarifas cargadas</span><span class="val g">≥50%</span></div>
+      </div>
+      <div class="card"><h3>🏪 Merchants</h3>
+        <div class="metric"><span class="lbl">Merchants en Tier 5</span><span class="val g">≤10% base activos</span></div>
+        <div class="metric"><span class="lbl">Merchants publicando cargas</span><span class="val g">≥80%</span></div>
+        <div class="metric"><span class="lbl">Merchants recurrentes (≥2/mes)</span><span class="val g">≥80%</span></div>
+        <div class="metric"><span class="lbl">Comunicación retrasos críticos</span><span class="val g">≤2 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Merchants sin carga mensual</span><span class="val g">≤5%</span></div>
+      </div>
+      <div class="card"><h3>📱 Adopción de Plataforma</h3>
+        <div class="metric"><span class="lbl">PODs escaneados ≤48h post-entrega</span><span class="val g">≥85%</span></div>
+        <div class="metric"><span class="lbl">Merchants 1ª carga ≤7 días</span><span class="val g">≥70%</span></div>
+        <div class="metric"><span class="lbl">Carriers 1er load ≤7 días</span><span class="val g">≥60%</span></div>
+      </div>
+      <div class="card"><h3>💰 Economía del Marketplace</h3>
+        <div class="metric"><span class="lbl">Margen promedio por viaje</span><span class="val g">≥10%</span></div>
+        <div class="metric"><span class="lbl">Viajes con margen negativo</span><span class="val g">≤3%</span></div>
+        <div class="metric"><span class="lbl">Discrepancia tarifa vs sistema</span><span class="val g">≤5%</span></div>
+        <div class="metric"><span class="lbl">Viajes cobrados ≤términos crédito</span><span class="val g">≥90%</span></div>
+        <div class="metric"><span class="lbl">Cartera vencida &gt;15 días</span><span class="val g">≤10%</span></div>
+        <div class="metric"><span class="lbl">Clientes con crédito excedido</span><span class="val g">≤5%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div id="marketing" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">📣</div><div><h2>SLA's Marketing</h2><p>Campañas · Diseño · Leads · Publicidad y PR · Reportes</p></div></div>
+    <div class="tl-wrap">
+      <h3>🎨 Tiempos de Producción de Contenido</h3>
+      <div class="tl-bar"><span class="tl-lbl">Campaña urgente</span><div class="tl-track"><div class="tl-fill" style="width:3%;background:var(--green)"></div></div><span class="tl-val">4 hrs</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Gráfico sencillo</span><div class="tl-track"><div class="tl-fill" style="width:8%;background:var(--green)"></div></div><span class="tl-val">1 día hábil</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Contenido web / plataformas</span><div class="tl-track"><div class="tl-fill" style="width:16%;background:var(--teal)"></div></div><span class="tl-val">48 hrs hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Anuncios pagados</span><div class="tl-track"><div class="tl-fill" style="width:16%;background:var(--teal)"></div></div><span class="tl-val">2 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Video edición (materiales equipo)</span><div class="tl-track"><div class="tl-fill" style="width:24%;background:var(--yellow)"></div></div><span class="tl-val">3 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Gráfico complejo</span><div class="tl-track"><div class="tl-fill" style="width:30%;background:var(--yellow)"></div></div><span class="tl-val">3–5 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Campaña estándar</span><div class="tl-track"><div class="tl-fill" style="width:40%;background:var(--orange)"></div></div><span class="tl-val">5 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Post-producción video</span><div class="tl-track"><div class="tl-fill" style="width:45%;background:var(--orange)"></div></div><span class="tl-val">3–6 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Materiales impresos / físicos</span><div class="tl-track"><div class="tl-fill" style="width:75%;background:var(--red)"></div></div><span class="tl-val">15 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Video producción desde cero</span><div class="tl-track"><div class="tl-fill" style="width:90%;background:var(--red)"></div></div><span class="tl-val">10–12 días hábiles</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📲 Leads y Soporte a Ventas</h3>
+        <div class="metric"><span class="lbl">Leads calificados offline</span><span class="val">24 hrs post-captura</span></div>
+        <div class="metric"><span class="lbl">Materiales digitales sencillos</span><span class="val g">1 día hábil</span></div>
+        <div class="metric"><span class="lbl">Materiales digitales complejos</span><span class="val">3–5 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Activación de promociones</span><span class="val">3 días desde aprobación</span></div>
+      </div>
+      <div class="card"><h3>📡 Publicidad y PR</h3>
+        <div class="metric"><span class="lbl">Lanzamiento anuncios pagados</span><span class="val">Máx. 2 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Respuesta medios / PR</span><span class="val g">1 día hábil</span></div>
+        <div class="metric"><span class="lbl">Aprobación comunicados prensa</span><span class="val">3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Respuesta urgente a medios</span><span class="val g">Máx. 6 hrs</span></div>
+      </div>
+      <div class="card"><h3>📊 Reportes y Análisis</h3>
+        <div class="metric"><span class="lbl">Reporte desempeño campañas</span><span class="val c">Mensual</span></div>
+        <div class="metric"><span class="lbl">Análisis nuevas estrategias</span><span class="val">14 días post-implementación</span></div>
+        <div class="metric"><span class="lbl">Mejoras basadas en datos</span><span class="val o">Evaluación 7 días</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT & IT -->
+<div id="it" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">💻</div><div><h2>Product & IT</h2><p>Disponibilidad · Calidad · Seguridad · Innovación</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">≥99.9%</div><div class="kl">Uptime core</div></div>
+      <div class="kpi"><div class="kv">≤1h</div><div class="kl">Recuperación críticos</div></div>
+      <div class="kpi"><div class="kv">≥80%</div><div class="kl">Due Date Compliance</div></div>
+      <div class="kpi"><div class="kv">≥65%</div><div class="kl">AI Adoption IT</div></div>
+    </div>
+    <div class="tl-wrap">
+      <h3>📊 Métricas de Calidad y Seguridad</h3>
+      <div class="tl-bar"><span class="tl-lbl">Uptime servicios core</span><div class="tl-track"><div class="tl-fill" style="width:99.9%;background:var(--green)"></div></div><span class="tl-val">≥99.9%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Due Date Compliance</span><div class="tl-track"><div class="tl-fill" style="width:80%;background:var(--teal)"></div></div><span class="tl-val">≥80%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Tickets resueltos en SLA</span><div class="tl-track"><div class="tl-fill" style="width:85%;background:var(--teal)"></div></div><span class="tl-val">≥85%</span></div>
+      <div class="tl-bar"><span class="tl-lbl">AI Adoption promedio IT</span><div class="tl-track"><div class="tl-fill" style="width:65%;background:var(--yellow)"></div></div><span class="tl-val">≥65%</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>🟢 Disponibilidad y Continuidad</h3>
+        <div class="metric"><span class="lbl">Uptime servicios core</span><span class="val g">≥99.9%</span></div>
+        <div class="metric"><span class="lbl">Recuperación eventos críticos</span><span class="val r">≤1 hora</span></div>
+        <div class="metric"><span class="lbl">Recuperación eventos altos</span><span class="val r">≤4 horas</span></div>
+        <div class="metric"><span class="lbl">Post-Mortem completado</span><span class="val g">100%</span></div>
+      </div>
+      <div class="card"><h3>✅ Calidad de Entregables</h3>
+        <div class="metric"><span class="lbl">Due Date Compliance global</span><span class="val g">≥80%</span></div>
+        <div class="metric"><span class="lbl">Tickets devueltos o reabiertos</span><span class="val g">≤15%</span></div>
+        <div class="metric"><span class="lbl">Incidentes post-release críticos</span><span class="val g">0 por mes</span></div>
+      </div>
+      <div class="card"><h3>🔒 Seguridad y Compliance</h3>
+        <div class="metric"><span class="lbl">Vulnerabilidades críticas ≥7 días</span><span class="val g">0</span></div>
+        <div class="metric"><span class="lbl">Vulnerabilidades medias ≥15 días</span><span class="val g">0</span></div>
+      </div>
+      <div class="card"><h3>🚀 Innovación y Eficiencia IT</h3>
+        <div class="metric"><span class="lbl">AI Adoption promedio IT</span><span class="val g">≥65%</span></div>
+        <div class="metric"><span class="lbl">Equipo IT cumple métricas ind.</span><span class="val g">≥75%</span></div>
+        <div class="metric"><span class="lbl">Tickets resueltos dentro de SLA</span><span class="val g">≥85%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RRHH -->
+<div id="rrhh" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">👥</div><div><h2>Recursos Humanos</h2><p>Administración · Reclutamiento · Capacitación · Desarrollo · Cultura</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">90%</div><div class="kl">Ingresos efectivos</div></div>
+      <div class="kpi"><div class="kv">95%</div><div class="kl">Satisfac. candidato</div></div>
+      <div class="kpi"><div class="kv">85%</div><div class="kl">Permanencia</div></div>
+      <div class="kpi"><div class="kv">≥85%</div><div class="kl">Satisfac. capacit.</div></div>
+    </div>
+    <div class="tl-wrap">
+      <h3>⏱ Tiempos de Contratación por Nivel</h3>
+      <div class="tl-bar"><span class="tl-lbl">Ops / Ventas / Staff</span><div class="tl-track"><div class="tl-fill" style="width:33%;background:var(--green)"></div></div><span class="tl-val">20 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Managers</span><div class="tl-track"><div class="tl-fill" style="width:75%;background:var(--yellow)"></div></div><span class="tl-val">45 días hábiles</span></div>
+      <div class="tl-bar"><span class="tl-lbl">Directores</span><div class="tl-track"><div class="tl-fill" style="width:100%;background:var(--red)"></div></div><span class="tl-val">60 días hábiles</span></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📋 Administración de Personal</h3>
+        <div class="metric"><span class="lbl">Alta IMSS / Nómina</span><span class="val g">1 día antes del ingreso</span></div>
+        <div class="metric"><span class="lbl">Herramientas administrativas</span><span class="val">Máx. 7 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Alta prestaciones y beneficios</span><span class="val">5–10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Solicitudes administrativas</span><span class="val">Resp. 24h / Res. 3 días</span></div>
+        <div class="metric"><span class="lbl">Proceso de finiquito</span><span class="val g">3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Proceso de liquidación</span><span class="val">5 días post-notificación</span></div>
+        <div class="metric"><span class="lbl">Cierre administrativo de bajas</span><span class="val">2 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Índice de rotación general</span><span class="val c">Reporte mensual</span></div>
+      </div>
+      <div class="card"><h3>🔎 Reclutamiento y Selección</h3>
+        <div class="metric"><span class="lbl">Cobertura de vacantes</span><span class="val g">100% (del 1 al 10)</span></div>
+        <div class="metric"><span class="lbl">Efectividad de contratación</span><span class="val">Máx. 2 ternas/vacante</span></div>
+        <div class="metric"><span class="lbl">Tasa de ingresos efectivos</span><span class="val g">90% con contrato previo</span></div>
+        <div class="metric"><span class="lbl">Satisfacción del candidato</span><span class="val g">95% promedio</span></div>
+        <div class="metric"><span class="lbl">Tasa de permanencia</span><span class="val g">85% nuevos ingresos</span></div>
+      </div>
+      <div class="card"><h3>🎓 Capacitación y Onboarding</h3>
+        <div class="metric"><span class="lbl">Inducción al puesto</span><span class="val">Máx. 5 días post-ingreso</span></div>
+        <div class="metric"><span class="lbl">Horas capacitación presencial</span><span class="val g">Mín. 50 horas</span></div>
+        <div class="metric"><span class="lbl">Satisfacción capacitación</span><span class="val g">≥85%</span></div>
+        <div class="metric"><span class="lbl">Nivel aprendizaje plataforma</span><span class="val g">≥80 calificación</span></div>
+        <div class="metric"><span class="lbl">Nivel aprendizaje presencial</span><span class="val g">≥80 calificación</span></div>
+        <div class="metric"><span class="lbl">Cursos nuevos en plataforma</span><span class="val c">+5 vs mes anterior</span></div>
+        <div class="metric"><span class="lbl">Tasa cumplimiento presencial</span><span class="val">≥60%</span></div>
+        <div class="metric"><span class="lbl">Tasa cumplimiento Envia Academy</span><span class="val">≥60%</span></div>
+      </div>
+      <div class="card"><h3>📈 Desarrollo Organizacional</h3>
+        <div class="metric"><span class="lbl">Evaluación de desempeño</span><span class="val c">Al final de cada Q</span></div>
+        <div class="metric"><span class="lbl">Resultados SLA's generales</span><span class="val">Máx. 10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Eval. bidireccional 30/60 días</span><span class="val">Máx. semana 4</span></div>
+        <div class="metric"><span class="lbl">Eval. bidireccional 90 días</span><span class="val">Inicio semana 3</span></div>
+        <div class="metric"><span class="lbl">Reporte anomalías</span><span class="val">Máx. 3 días post-eval.</span></div>
+        <div class="metric"><span class="lbl">Reunión renovación contrato</span><span class="val g">Máx. 1 día post-90 días</span></div>
+        <div class="metric"><span class="lbl">Repositorio políticas internas</span><span class="val g">90% actualizado/mes</span></div>
+        <div class="metric"><span class="lbl">Identificación de HiPos</span><span class="val c">c/6 meses</span></div>
+        <div class="metric"><span class="lbl">Plan de vida y carrera</span><span class="val">6 meses post-ingreso</span></div>
+        <div class="metric"><span class="lbl">Creación job descriptions</span><span class="val">5 días post-solicitud</span></div>
+        <div class="metric"><span class="lbl">Plan mejora desempeño (PMD)</span><span class="val">3 días post-solicitud</span></div>
+        <div class="metric"><span class="lbl">Encuesta de salida</span><span class="val">Último día + análisis 5d</span></div>
+        <div class="metric"><span class="lbl">Outplacement (offboarding)</span><span class="val">Máx. 10 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>🎉 Cultura y Comunicación</h3>
+        <div class="metric"><span class="lbl">Kit de bienvenida</span><span class="val g">1er día laboral</span></div>
+        <div class="metric"><span class="lbl">Quejas / conflictos laborales</span><span class="val">Resp. 24h / Res. 10 días</span></div>
+        <div class="metric"><span class="lbl">Entrega compras EnviaShop</span><span class="val g">Máx. 5 horas</span></div>
+        <div class="metric"><span class="lbl">Requisición flyer interno</span><span class="val">Máx. 3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Eventos por desempeño (ops.)</span><span class="val g">Mín. 1 evento al mes</span></div>
+        <div class="metric"><span class="lbl">Eventos por desempeño (staff)</span><span class="val c">Mín. 1 al final de cada Q</span></div>
+        <div class="metric"><span class="lbl">Satisfacción por evento</span><span class="val g">≥4 en escala Likert</span></div>
+        <div class="metric"><span class="lbl">Cápsulas de comunicación</span><span class="val c">4 al mes</span></div>
+        <div class="metric"><span class="lbl">Campañas identidad corporativa</span><span class="val c">4 al mes</span></div>
+        <div class="metric"><span class="lbl">Actividades externas solicitud</span><span class="val">Hasta 15 días hábiles</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GROWTH -->
+<div id="growth" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">🌱</div><div><h2>SLA's Growth</h2><p>Cumplimiento · IA · Monitoreo · Equipos · Incidencias · Usuarios · Permisos</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">24/7</div><div class="kl">Monitoreo enlaces</div></div>
+      <div class="kpi"><div class="kv">≤15m</div><div class="kl">Detección falla</div></div>
+      <div class="kpi"><div class="kv">85%</div><div class="kl">Satisfacción IA</div></div>
+      <div class="kpi"><div class="kv">Inmediato</div><div class="kl">Baja seguridad</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📋 Indicadores de Cumplimiento</h3>
+        <div class="metric"><span class="lbl">Registro de gastos en tiempo y forma</span><span class="val g">✓ Obligatorio</span></div>
+        <div class="metric"><span class="lbl">Gestión cumplimiento normativo</span><span class="val c">Proveedores y Personal</span></div>
+      </div>
+      <div class="card"><h3>🤖 Inteligencia Artificial</h3>
+        <div class="metric"><span class="lbl">Registro resolución incidencias</span><span class="val g">Máx. 1 hr hábil</span></div>
+        <div class="metric"><span class="lbl">Solución de incidencias</span><span class="val">Máx. 24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Evaluación calidad / servicio</span><span class="val g">85% satisfacción</span></div>
+      </div>
+      <div class="card"><h3>🔗 Monitoreo de Enlaces</h3>
+        <div class="metric"><span class="lbl">Monitoreo</span><span class="val g">24/7</span></div>
+        <div class="metric"><span class="lbl">Detección de falla</span><span class="val g">≤15 minutos</span></div>
+        <div class="metric"><span class="lbl">Notificación a stakeholders</span><span class="val g">≤30 minutos</span></div>
+        <div class="metric"><span class="lbl">Inicio de gestión</span><span class="val g">24/7</span></div>
+      </div>
+      <div class="card"><h3>💻 Asignación de Equipos</h3>
+        <div class="metric"><span class="lbl">Nuevo ingreso (onboarding)</span><span class="val">≤3 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Reemplazo por falla crítica</span><span class="val r">≤4 horas</span></div>
+        <div class="metric"><span class="lbl">Reemplazo planificado</span><span class="val">≤48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Configuración estándar</span><span class="val">≤24 horas</span></div>
+      </div>
+      <div class="card"><h3>🚨 Resolución de Incidencias</h3>
+        <div class="metric"><span class="lbl">Falla crítica (no puede operar)</span><span class="val r">Inmediata</span></div>
+        <div class="metric"><span class="lbl">Falla alta (función afectada)</span><span class="val r">≤1 hora</span></div>
+        <div class="metric"><span class="lbl">Falla media (error parcial)</span><span class="val o">≤24 horas</span></div>
+        <div class="metric"><span class="lbl">Falla baja (req. menor)</span><span class="val g">≤48 horas</span></div>
+      </div>
+      <div class="card"><h3>📦 Recolección de Equipos</h3>
+        <div class="metric"><span class="lbl">Baja programada</span><span class="val">≤1 día hábil</span></div>
+        <div class="metric"><span class="lbl">Baja urgente</span><span class="val r">Inmediato</span></div>
+        <div class="metric"><span class="lbl">Registro y validación</span><span class="val">≤48 hrs post-recepción</span></div>
+      </div>
+      <div class="card"><h3>🌐 Atención a Usuarios</h3>
+        <div class="metric"><span class="lbl">Resp. inicial México</span><span class="val g">≤4 horas</span></div>
+        <div class="metric"><span class="lbl">Resp. inicial Global</span><span class="val">≤8 horas</span></div>
+        <div class="metric"><span class="lbl">Resolución México</span><span class="val">≤24 horas</span></div>
+        <div class="metric"><span class="lbl">Resolución Global</span><span class="val o">≤48 horas</span></div>
+        <div class="metric"><span class="lbl">Críticos México</span><span class="val r">Inmediato</span></div>
+        <div class="metric"><span class="lbl">Críticos Global</span><span class="val r">≤4 horas</span></div>
+      </div>
+      <div class="card"><h3>🔑 Permisos en Plataformas</h3>
+        <div class="metric"><span class="lbl">Permiso estándar</span><span class="val">≤24 horas</span></div>
+        <div class="metric"><span class="lbl">Modificación de permiso</span><span class="val g">Inmediato</span></div>
+        <div class="metric"><span class="lbl">Revocación de permiso</span><span class="val g">Inmediato</span></div>
+        <div class="metric"><span class="lbl">Permiso crítico</span><span class="val r">Inmediato</span></div>
+      </div>
+      <div class="card"><h3>👤 Altas y Bajas de Usuarios</h3>
+        <div class="metric"><span class="lbl">Alta estándar</span><span class="val">≤24 horas</span></div>
+        <div class="metric"><span class="lbl">Alta urgente</span><span class="val g">≤4 horas</span></div>
+        <div class="metric"><span class="lbl">Baja programada</span><span class="val">≤24 horas</span></div>
+        <div class="metric"><span class="lbl">Baja inmediata (seguridad)</span><span class="val r">Inmediato</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BI / STRATEGY -->
+<div id="bi" class="page">
+  <div class="sp">
+    <div class="sh"><div class="sh-icon">📊</div><div><h2>Strategy / Business Intelligence</h2><p>Reportes · Dashboards · Análisis · Automatización · Soporte Interno</p></div></div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kv">48h</div><div class="kl">Reportes estándar</div></div>
+      <div class="kpi"><div class="kv">Diario</div><div class="kl">Dashboards KPI</div></div>
+      <div class="kpi"><div class="kv">&lt;24h</div><div class="kl">Solicitudes datos</div></div>
+      <div class="kpi"><div class="kv">5d</div><div class="kl">Análisis específicos</div></div>
+    </div>
+    <div class="cg">
+      <div class="card"><h3>📈 Generación y Entrega de Reportes</h3>
+        <div class="metric"><span class="lbl">Reportes / Queries estándar</span><span class="val">Máx. 48 hrs post-solicitud</span></div>
+        <div class="metric"><span class="lbl">Actualización dashboards KPIs</span><span class="val g">Diario o tiempo real</span></div>
+        <div class="metric"><span class="lbl">Acceso a reportes en Admin</span><span class="val g">1–2 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>🖥️ Dashboards y Tablas</h3>
+        <div class="metric"><span class="lbl">Diseño dashboards interactivos</span><span class="val o">15–30 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Actualización datos en sistemas</span><span class="val g">1–3 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>🔍 Análisis y Decisiones</h3>
+        <div class="metric"><span class="lbl">Solicitudes de análisis específicos</span><span class="val">Máx. 5 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>⚡ Automatización y Optimización</h3>
+        <div class="metric"><span class="lbl">Alertas automatizadas en Slack</span><span class="val g">1–3 días hábiles</span></div>
+      </div>
+      <div class="card"><h3>🤝 Soporte a Equipos Internos</h3>
+        <div class="metric"><span class="lbl">Solicitudes internas datos/insights</span><span class="val g">&lt;24 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Resolución inconsistencias datos</span><span class="val">&lt;48 hrs hábiles</span></div>
+        <div class="metric"><span class="lbl">Capacitaciones herramientas BI</span><span class="val">Máx. 5 días para agendar</span></div>
+      </div>
+      <div class="card"><h3>📊 Evaluación y Estrategia de Crecimiento</h3>
+        <div class="metric"><span class="lbl">Análisis oportunidades de expansión</span><span class="val c">Trimestral (report. 15 días)</span></div>
+        <div class="metric"><span class="lbl">Implementación estrategias BI</span><span class="val">&lt;10 días hábiles</span></div>
+        <div class="metric"><span class="lbl">Revisión y ajuste estrategias</span><span class="val c">c/6 meses (ajustes 20 días)</span></div>
+      </div>
+    </div>
+    <div class="pf">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:center;">
+        <svg viewBox="0 0 110 100" width="28" height="25" xmlns="http://www.w3.org/2000/svg" style="opacity:.4">
+          <rect x="8" y="42" width="8" height="26" rx="2" fill="#A855F7"/>
+          <rect x="20" y="34" width="8" height="34" rx="2" fill="#00C8C8"/>
+          <rect x="32" y="24" width="8" height="44" rx="2" fill="#4CAF50"/>
+          <rect x="44" y="14" width="8" height="54" rx="2" fill="#E8401C"/>
+          <polygon points="48,4 42,16 54,16" fill="#E8401C"/>
+          <path d="M4 68 L12 82 L88 82 L96 68 Z" fill="none" stroke="#00C8C8" stroke-width="3.5" stroke-linejoin="round"/>
+          <line x1="0" y1="68" x2="8" y2="68" stroke="#00C8C8" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="22" cy="93" r="7" fill="#00C8C8"/>
+          <circle cx="74" cy="93" r="7" fill="#00C8C8"/>
+        </svg>
+        <span>SLA's Tendencys · Documento de Estándares Globales · Edición 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-bottom .nav-tab').forEach(t=>t.classList.remove('active'));
+  const el=document.getElementById(id);
+  if(el) el.classList.add('active');
+  const map={cover:0,index:1,general:2,country:3,finanzas:4,partnerships:5,ventas:6,corpsales:7,ops:8,fulfillment:9,legal:10,ltl:11,ftl:12,marketing:13,it:14,rrhh:15,growth:16,bi:17};
+  const tabs=document.querySelectorAll('.nav-bottom .nav-tab');
+  if(map[id]!==undefined&&tabs[map[id]]) tabs[map[id]].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
